@@ -22,7 +22,7 @@ MqttClient mqttClient(wifiClient);
 
 const char broker[] = "mqtt-dashboard.com";
 int port = 1883;
-const char topic[] = "SIT210/waves";
+const char topic[] = "Vansh's Wave/Pat";
 
 const long interval = 1000;
 unsigned long previousMillis = 0;

@@ -11,17 +11,19 @@
 
 // #include "arduino_secrets.h"
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
-char ssid[] = "ryan.n";    // your network SSID (name)
+char ssid[] = "Veekay";    // your network SSID (name)
 char pass[] = "12345678";    // your network password (use for WPA, or use as key for WEP)
 
 int light = 2;
+
 
 WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "mqtt-dashboard.com";
 int        port     = 1883;
-const char topic[]  = "SIT210/waves";
+const char topic[]  = "Vansh's wave/pat";
+bool iswave = true;
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -84,6 +86,8 @@ void loop() {
     while (mqttClient.available()) {
       Serial.print((char)mqttClient.read());
     }
+    if(iswave = true) // for continous blinking
+    {
     Serial.println();
     digitalWrite(light, HIGH);   // turn the LED on (HIGH is the voltage level)
     delay(700);                       // wait for a second
@@ -97,7 +101,14 @@ void loop() {
     delay(700);                       // wait for a second
     digitalWrite(light, LOW);    // turn the LED off by making the voltage LOW
     delay(800);
-
+    }
+    // for Patting the light once
+    else{
+    digitalWrite(light, HIGH);   // turn the LED on (HIGH is the voltage level)
+    delay(700);                       // wait for a second
+    digitalWrite(light, LOW);    // turn the LED off by making the voltage LOW
+    delay(800);
+    }
     Serial.println();
   }
 }
