@@ -14,7 +14,6 @@
 char ssid[] = "Veekay";    // your network SSID (name)
 char pass[] = "12345678";    // your network password (use for WPA, or use as key for WEP)
 
-int light = 2;
 bool iswave = true; // Variable to control the light behavior
 
 WiFiClient wifiClient;
